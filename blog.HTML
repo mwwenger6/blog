@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel='stylesheet'  href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css'>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+    <style>
+
+        .row > div.col {
+            padding: 5px;
+        }
+
+        .row  {
+            margin: 40px auto;
+        }
+        
+        .container > div.row{
+            border: 1px solid black;
+            background-color: darkslategrey;
+            margin: 10px;
+        }
+
+
+        .card {
+            border-radius: 25px;
+            background-color: lightblue;
+            padding: 20px;
+            height: 250px;
+            width: 200px;
+        }
+        
+        .comments{
+            border: 3px solid black;
+            width: 700px;
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+<body style="background-color: black;">
+    
+    <div class="container" id="container1" align="center">
+        <div id='row' class="row">
+            <h1 style="background-color:beige;">Blog Posts!!</h1>
+            <div class="col s12 m4 l4" >
+                <div id='card1' class = 'card' align="center" onClick = 'chooseTopic(0)'>
+                    <img id="img1">
+                    <h6 id="title1"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card2' class = 'card' align="center" onClick = 'chooseTopic(1)'>
+                    <img id="img2">
+                    <h6 id="title2"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card3' class = 'card' align="center" onClick = 'chooseTopic(2)'>
+                    <img id="img3">
+                    <h6 id="title3"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4" class = 'openings'>
+                <div id='card4' class = 'card' align="center" onClick = 'chooseTopic(3)'>
+                    <img id="img4">
+                    <h6 id="title4"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card5' class = 'card' align="center" onClick = 'chooseTopic(4)'>
+                    <img id="img5">
+                    <h6 id="title5"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card6' class = 'card' align="center" onClick = 'chooseTopic(5)'>
+                    <img id="img6">
+                    <h6 id="title6"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4" class = 'openings'>
+                <div id='card7' class = 'card' align="center" onClick = 'chooseTopic(6)'>
+                    <img id="img7">
+                    <h6 id="title7"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card8' class = 'card' align="center" onClick = 'chooseTopic(7)'>
+                    <img id="img8">
+                    <h6 id="title8"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card9' class = 'card' align="center" onClick = 'chooseTopic(8)'>
+                    <img id="img9">
+                    <h6 id="title9"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4" class = 'openings'>
+                <div id='card10' class = 'card' align="center" onClick = 'chooseTopic(9)'>
+                    <img id="img10">
+                    <h6 id="title10"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card11' class = 'card' align="center" onClick = 'chooseTopic(10)'>
+                    <img id="img11">
+                    <h6 id="title11"></h6>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div id='card12' class = 'card' align="center" onClick = 'chooseTopic(11)'>
+                    <img id="img12">
+                    <h6 id="title12"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container2" hidden>
+        <div class="row" style="background-color: aliceblue;" >
+            <div class="col s12 m12 l12">
+                <a href="#" class="hover_icon btn-floating light-blue pulse" align="left" onClick = 'goBack()'>
+                    <i class="material-icons">backspace</i>
+                </a>
+            </div>
+            <div class="col s12 m12 l12" align="center">
+                <h3 id="title"></h3>
+            </div>
+            <div class="col s12 m12 l12" align="center">
+                <img id="img" height="400px" width="400px">
+            </div>
+            <div class="col s12 m12 l12" align="center">
+                <p id="p" align="center"></p>
+            </div>
+            <div class="col s12 m12 l12" align="center">
+                <a href="#" class="btn pink waves-light waves-effect" onClick="comments()">
+                    <span>Comments</span>
+                    <i class="material-icons left">comment</i>
+                </a>
+            </div>          
+        </div>
+    </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet" style="background-color: lightgrey;">
+          <div class="modal-content">
+            <h4>Comments</h4>
+            <div class="row">
+                <div class="col s12 m12 l12" align="left">
+                    <div class="comments">
+                        <a href="#" class="btn grey">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                            <span id="email1"></span>
+                        </a>
+                        <p id="comment1"></p>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12" align="left">
+                    <div class="comments">
+                        <a href="#" class="btn grey">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                            <span id="email2"></span>
+                        </a>
+                        <p id="comment2"></p>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12" align="left">
+                    <div class="comments">
+                        <a href="#" class="btn grey">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                            <span id="email3"></span>
+                        </a>
+                        <p id="comment3"></p>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12" align="left">
+                    <div class="comments">
+                        <a href="#" class="btn grey">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                            <span id="email4"></span>
+                        </a>
+                        <p id="comment4"></p>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12" align="left">
+                    <div class="comments">
+                        <a href="#" class="btn grey">
+                            <span>Email</span>
+                            <i class="material-icons left">email</i>
+                            <span id="email5"></span>
+                        </a>
+                        <p id="comment5"></p>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="background-color: grey;">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+
+
+    <script src="blog.js"></script>
+
+</body>
+</html>
